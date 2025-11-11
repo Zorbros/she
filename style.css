@@ -19,6 +19,16 @@ body{  /*KILL MYSELFFFFF*/
   overflow: hidden;
   backdrop-filter: blur(10px);
 }
+.momo-signature-regular {
+  font-family: "Momo Signature", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+
+
 .cat{
    position: absolute;
   width: 220px;   
@@ -34,6 +44,7 @@ body{  /*KILL MYSELFFFFF*/
   width: 220px;   
   height: 220px;
 }
+
 .cat:nth-child(1) { top: -250px; left: 5%; animation-delay: 0s; }
 .cat:nth-child(2) { top: -250px; left: 20%; animation-delay: 1.5s; }
 .cat:nth-child(3) { top: -250px; left: 35%; animation-delay: 3s; }
@@ -41,9 +52,6 @@ body{  /*KILL MYSELFFFFF*/
 .cat:nth-child(5) { top: -250px; left: 65%; animation-delay: 3s; }
 .cat:nth-child(6) { top: -250px; left: 80%; animation-delay: 1.5s; }
 .cat:nth-child(7) { top: -250px; left: 90%; animation-delay: 0s; }
-
-
-/*this single cat sequence tortured the fuck out of me ;-;;*/
 
 @keyframes driftDown {
   0% {
@@ -58,53 +66,380 @@ body{  /*KILL MYSELFFFFF*/
   }
 }
 
-.record-btn {
+.cat:hover img,
+.keychain:hover img {
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg) translate(0); }
+  25% { transform: rotate(5deg) translate(2px, -2px); }
+  50% { transform: rotate(-5deg) translate(-2px, 2px); }
+  75% { transform: rotate(3deg) translate(1px, -1px); }
+  100% { transform: rotate(0deg) translate(0); }
+}
+
+/*this single cat/bg sequence tortured the fuck out of me ;-;;*/
+
+.keychain{
+   position: absolute;
+  width: 420px;   
+  height: 720px;  
+  object-fit: cover; 
+  filter: grayscale(100%) opacity(80%);
+  pointer-events: none;
+  animation: driftDown 8s linear infinite;
+  z-index: 0;
+}
+.keychain img{
+  position: absolute;
+  width: 420px;   
+  height: 720px;
+}
+
+.keychain:nth-of-type(1) { top: -950px; left: 0%; animation-delay: 0s; }
+.keychain:nth-of-type(2) { top: -950px; left: 15%; animation-delay: 1.5s; }
+.keychain:nth-of-type(3) { top: -950px; left: 30%; animation-delay: 3s; }
+.keychain:nth-of-type(4) { top: -950px; left: 45%; animation-delay: 4.5s; }
+.keychain:nth-of-type(5) { top: -950px; left: 60%; animation-delay: 3s; }
+.keychain:nth-of-type(6) { top: -950px; left: 75%; animation-delay: 1.5s; }
+.keychain:nth-of-type(7) { top: -950px; left: 90%; animation-delay: 0s; }
+
+.record-btn{
   background: none;
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: transform 0.2s ease, filter 0.1s ease;
-  z-index: 200;
+  transition: all 0.4s ease;
+  z-index: 300;
 }
 
-.record-btn img {
-  width: 300px;
+.record-btn img{
+  width: 250px;
   height: auto;
   border-radius: 50%;
-  transition: transform 2s linear;
+  transition: transform 1.5s linear;
 }
 
+.record-btn.moved {
+  top: 22%;
+  left: 22%;
+  transform: none;
+  width: 150px;
+}
+.record-btn.moved:active {
+  transform: scale(0.95);
+}
 
-.record-btn:hover img {
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.record-btn.moved img {
+  animation: spin 4s linear infinite;
+}
+
+.record-btn:hover img{
   transform: rotate(360deg);
+  transition: transform 4s linear;
 }
 
-.record-btn:active {
-  filter: brightness(70%);
+.record-btn:active{
+  filter: brightness(60%);
   transform: translate(-50%, -50%) scale(0.98);
 }
 
 
-.playlistsec{
-  z-index: 200;
+
+/*the borgr, i actually take this little break to appreciate YOU, tselmuun for being the most amazing person ever. kk i needa finish this fukcas playlist help*/
+
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 }
 
-#playlistcontent{
+#playlist-section {
   display: none;
-  font-size: 300px;
-  background-color: #625b5b;
-  border: 400px;
-  border-radius: 20px;
-  margin: 500px;
-  align-self: center;
+}
+#playlist-title {
   text-align: center;
-  padding: 5px;
-  border-width: 10px;
-  border-style: double;
- position: relative;
- z-index: 10;
+  font-size: 100px;
+  color: #f1f1f1;
+  margin: 0;
+  cursor: pointer; /* make it clickable */
+  transition: transform 0.2s ease, color 0.3s ease;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+#playlist-title:hover {
+  transform: scale(1.05);
+  color: #fff0f0;
+}
+#playlist-title:active {
+  transform: scale(0.95);
+}
+
+.playlist-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  margin-left: 50px;
+  width: 2000px;
+  height: 50%;
+  margin: 300px;
+  backdrop-filter: blur(5px);
+  border-radius: 150px;
+  background-color: rgba(98,91,91,0.8);
+  padding: 50px;
+  padding-top: 5px;
+  box-shadow: 0 0 20px #00000050;
+    gap: 60px;
+  border-style: groove;
+  border-color: #000;
+
+}
+
+.playlist {
+  flex: 1;
+  overflow-y: auto;
+}
+.playlist h1 {
+  text-align: center;
+  font-size: 100px;
+  color: #f1f1f1;
+  margin: 0;
+  margin-bottom: 30px;
+}
+.playlist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 50px;
+}
+.playlist li {
+  padding: 20px;
+  text-align: center;
+  font-size: 45px;
+  margin: 8px 0;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: rgba(255,255,255,0.1);
+  width: auto;
+  color: #fff;
+  transition: background 0.2s;
+  
+}
+.playlist li:active{
+  filter: brightness(70%);
+  transform: scale(0.98);
+  display: flex;
+  text-transform: none;
+}
+
+.playlist li:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+
+/* Player + Video (Right) */
+.player-video {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+}
+
+.player {
+  padding: 15px;
+  border-radius: 50px;
+  color: #fff;
+  width: 100%;
+}
+.player h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+.update1 button{
+  background-color: rgba(149, 105, 139, 0);
+  border: none;
+  border-radius: 20px;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
+  gap: 30px;
+  margin-left: 43%;
+  margin-top: 50%;
+  justify-content: center;
+
+  position: relative;
+  display: block; /* ensures it shows up inside the playlist */
+  width: 100%;
+  height: 100%;
+}
+
+#song-list {
+  display: block;
+}
+
+#update1 {
+  display: block;
+  position: relative;
+}
+
+#mailButton1 {  
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  z-index: 2;
+}
+
+.update1 .material-symbols-rounded {
+  font-size: 100px;
+  color: #fff;
+  transition: color 0.3s;
+}
+.update1 button:hover {
+  transform: scale(1.2);
+}
+
+.update1 button:active {
+  transform: scale(0.95);
+}
+
+.playlist-container {
+  position: relative;
+}
+
+/* now the letter text sits inside it */
+#letter1 {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  width: 1200px;
+  line-height: 1.6;
+  background: rgba(0, 0, 0, 0);
+  padding: 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 90%;
+}
+
+
+#mailButton1.moved{
+  margin-top: 5px;
+  transform: none;
+  z-index: 15;
+}
+#mailButton1 span {
+  font-size: 80px;
+  color: white;
+  transition: color 0.4s ease;
+}
+
+#mailButton1:hover span {
+  color: #969594;
+}
+
+#mailButton1 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 43%;
+  margin-top: 50%;
+  z-index: 1;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#mailButton1.transparent {
+  opacity: 0.3; 
+  z-index: 0;
+}
+#mailButton1.material-symbols-rounded {
+  font-size: 80px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+
+
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.controls button {
+  background-color: rgba(149, 105, 139, 0);
+  border: none;
+  border-radius: 20px;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
+  gap: 30px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#controlsbutton, #videobox{
+  display: none;
+}
+
+.controls button:hover {
+  transform: scale(1.2);
+}
+
+.controls button:active {
+  transform: scale(0.95);
+}
+
+.controls .material-symbols-rounded {
+  font-size: 48px;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+
+
+
+.video-container {
+  flex: 1;
+  background-color: #000;
+  border-radius: 20px;
+  overflow: hidden;
+}
+#song-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.playlist::-webkit-scrollbar {
+  width: 8px;
 }

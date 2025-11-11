@@ -6,13 +6,21 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL,GRAD@1,0"rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
     <script src="script.js"></script>
+    
     <title><3 Ц</title>
 </head>
 <body>
+  <div class="cat-group">
     <div class="cat"><img src="catbg.png" alt="cat"></div>
   <div class="cat"><img src="catbg.png" alt="cat"></div>
   <div class="cat"><img src="catbg.png" alt="cat"></div>
@@ -20,15 +28,76 @@
   <div class="cat"><img src="catbg.png" alt="cat"></div>
   <div class="cat"><img src="catbg.png" alt="cat"></div>
   <div class="cat"><img src="catbg.png" alt="cat"></div>
+  
+  </div>
+  
+  <div class="keychain-group">
+  <div class="keychain"><img src="keychainbg.png" alt="keychain"></div>
+  <div class="keychain"><img src="keychainbg.png" alt="keychain"></div>
+  <div class="keychain"><img src="keychainbg.png" alt="keychain"></div>
+  <div class="keychain"><img src="keychainbg.png" alt="keychain"></div>
+  <div class="keychain"><img src="keychainbg.png" alt="keychain"></div>
+  <div class="keychain"><img src="keychainbg.png" alt="keychain"></div>
+  <div class="keychain"><img src="keychainbg.png" alt="keychain"></div>
+  </div>
 
-
-        <button class="record-btn", onclick="playlist()">
+        <button class="record-btn", onclick="playlistx()">
   <img src="record.png" alt="Record Button">
         </button>
-        <div class="playlistsec">
-        <div id="playlistcontent">
-          hi hello test fucktion
+
+        
+         <div class="playlist-section" id="playlist-section">
+
+  <div class="playlist">
+    <h1 id="playlist-title" onclick="playlisttitle()">Playlist</h1>
+    <ul id="song-list">
+      <li onclick="openPlayer('i-think-about-you')">I think about you not thinking about me</li>
+      <li onclick="openPlayer('Howl\'s')">Howl's</li>
+      <li onclick="openPlayer('Princess Mononoke')">Princess Mononoke</li>
+      <li onclick="openPlayer('One Summer\'s Day')">One Summer's Day</li>
+      <li onclick="openPlayer('Nando')">Nando</li>
+      <li onclick="openPlayer('Nostalgia')">Nostalgia</li>
+      <li onclick="openPlayer('Summer')">Summer</li>
+      <li onclick="openPlayer('Town\'s ocean view')">Town's ocean view</li>
+    </ul>
+  </div>
+
+  <div class="update1" id="update1">
+    <button id="mailButton1" onclick="updatebutton1()">
+      <span class="material-symbols-rounded">mail</span>
+    </button>
+    <h1 id="letter1">
+      this is the first update, It is currently 2:21 am on the third of November I'm dozed off, burnt out and subconscious but I feel grateful to be putting all my efforts and a concerning amount of blood (literally) into this gift. (Even though it is taking a fuck ton of time and braincells ;-;) I started this little project or had this in mind since you've reached out to me but only started coding since october. Things have never been rougher than now but I am happy. I'm happy because you thought of me, mf even more glad that you've been doing well, feel like i got awakened to see you again and blessed that you even tried reaching out to me. Guy i should be kissing your shoes and bowing, SERIOUSLY. This site/playlist is probably gonna get finished by december since I need to revise my html css and js, learn and RECORD new songs from scratch andd the qr code hehe. Also there are some messages within the html if you know how to check them out feel free!
+    </h1>
+  </div>
+
+  <div id="player-video" class="player-video">
+  <div class="player">
+    <audio id="audio-player" preload="metadata"></audio>
+    <h1 id="current-song" style="text-align:center; color:white; display:none;"></h1>
+    <div class="controls" id="controlsbutton">
+
+          <button onclick="prevSong()">
+            <span class="material-symbols-rounded">skip_previous</span>
+          </button>
+          <button id="play-btn" onclick="togglePlay()">
+            <span class="material-symbols-rounded" id="play-icon">play_arrow</span>
+          </button>
+          <button onclick="nextSong()">
+            <span class="material-symbols-rounded">skip_next</span>
+          </button>
+          <button onclick="downloadSong()">
+             <span class="material-symbols-rounded">download</span>
+            </button>
+            <button onclick="downloadVideo()">
+               <span class="material-symbols-rounded">download_for_offline</span>
+          </button>
         </div>
+
+        <div class="video-container" id="videobox">
+          <video id="song-video" controls></video>
         </div>
+      </div>
+    </div>
+  </div>
 </body>
-</html>
