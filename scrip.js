@@ -2,19 +2,13 @@ const correctPassword = "0427";
 let currentInput = "";
 
 function pressKey(key) {
-    if(currentInput.length < correctPassword.length){
+    if (currentInput.length < correctPassword.length) {
         currentInput += key;
         updateDisplay();
     }
-    if(currentInput.length === correctPassword.length){
+    if (currentInput.length === correctPassword.length) {
         checkPassword();
     }
-}
-
-function clearDisplay() {
-    currentInput = "";
-    updateDisplay();
-    document.getElementById("message").textContent = "";
 }
 
 function updateDisplay() {
@@ -23,9 +17,18 @@ function updateDisplay() {
 
 function checkPassword() {
     const message = document.getElementById("message");
-    if(currentInput === correctPassword){
-        message.style.color = "green";
-        message.textContent = "lol";
+    const link = document.getElementById("secretLink");
+    const img = document.getElementById("busimage");
+    const lock = document.querySelector(".lock");
+
+    if (currentInput === correctPassword) {
+
+        lock.style.display = "none";      
+        link.style.display = "block";
+        message.style.display = "none";   
+        link.href = "https://jeku.netlify.app";
+        img.src = "bus.png";
+
     } else {
         message.textContent = "Nuh uh";
         currentInput = "";
